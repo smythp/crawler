@@ -2,10 +2,12 @@ import cc
 import map
 import lexicon
 import functions
+import mobs
+
+p = mobs.p
 
 tokens = lexicon.tokens
 
-p = cc.Player("Bob",'warehouse')
 
 ##print("%s is in %s." % (p.name,p.c))
 ##p.move('n')
@@ -15,7 +17,7 @@ while 1:
     words = playertypes.split()
     sen = functions.parse(words)
     s = functions.sanitize_sentence(sen)
-##    functions.check_commands(s)
+    functions.check_commands(s)
 
 
 

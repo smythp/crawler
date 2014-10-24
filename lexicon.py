@@ -1,7 +1,7 @@
 ## Lexicon for parser
 
-tokens = (
-    ('DIRECTION',[
+tokens = {
+    'DIRECTIONS':[
         'NORTH',
         'SOUTH',
         'EAST',
@@ -25,25 +25,24 @@ tokens = (
         'NE',
         'SE',
         'NW',
-        ]
-     ),
-    ('VERBS',[
+        ],
+    'VERBS':[
         'GO',
+        'L',
+        'LOOK',
         'RUN',
         'WALK',
         'EAT',
         'KILL',
-        ]
-     ),
-    ('NOUNS',[
+        ],
+    'NOUNS':
+     [
         'BEAR',
         'PRINCESS',
-        ]
-     ),
-    ('FILLER',[
+        ],
+    'FILLER':[
         'THE',
         'OF',
         'A',
-        'AN',]
-     )
-    )
+        'AN',],
+    }

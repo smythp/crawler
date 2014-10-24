@@ -1,5 +1,22 @@
 import lexicon
+import mobs
+
 tokens = lexicon.tokens
+
+
+def check_commands(s):
+    try:
+        if s[0] == 'GO' and s[1] in tokens['DIRECTIONS']:
+            mobs.p.move((s[1]).lower())
+            print('walking ',s[1])
+        elif s[0] == 'LOOK' or 'L':
+            print("You're at the ",mobs.p.c)
+        else:
+            print("Can't do that'")
+    except IndexError:
+        pass
+
+
 
 def sanitize_sentence(sentence):
     try:
@@ -15,13 +32,13 @@ def sanitize_sentence(sentence):
 def parse(words):
     sentence = ['xxx','xxx','xxx']
     for word in words:
-        if word.upper() in tokens[0][1]:
+        if word.upper() in tokens['DIRECTIONS']:
             if sentence[1] == 'xxx':
                 sentence[1] = word.upper()
-        if word.upper() in tokens[1][1]:
+        if word.upper() in tokens['VERBS']:
             if sentence[0] == 'xxx':
                 sentence[0] = word.upper()
-        if word.upper() in tokens[2][1]:
+        if word.upper() in tokens['NOUNS']:
             if sentence[2] == 'xxx':
                 sentence[2] = word.upper()
     return(sentence)
