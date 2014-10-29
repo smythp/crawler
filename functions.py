@@ -6,15 +6,17 @@ tokens = lexicon.tokens
 
 def check_commands(s):
     try:
+        print(s[0])
         if s[0] == 'GO' and s[1] in tokens['DIRECTIONS']:
             mobs.p.move((s[1]).lower())
-            print('walking ',s[1])
-        elif s[0] == 'LOOK' or 'L':
+            print('walking ',s[1].lower())
+        elif s[0] == 'LOOK' and 'L':
             print("You're at the ",mobs.p.c)
         else:
-            print("Can't do that'")
+            print("Can't do that!")
     except IndexError:
-        pass
+        print("Index Error")
+
 
 
 

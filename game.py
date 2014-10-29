@@ -19,6 +19,18 @@ while 1:
     s = functions.sanitize_sentence(sen)
     functions.check_commands(s)
 
+## debug
+
+##while 1:
+##    playertypes = input('>')
+##    words = playertypes.split()
+##    print(words)
+##    sen = functions.parse(words)
+##    print(sen)
+##    s = functions.sanitize_sentence(sen)
+##    print(s)
+##    functions.check_commands(s)
+
 
 
 
