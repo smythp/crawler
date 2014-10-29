@@ -1,15 +1,19 @@
 import lexicon
 import mobs
+import synonyms
 
+synonyms = synonyms.synonym_list
 tokens = lexicon.tokens
 
 
 def check_commands(s):
     try:
-        print(s[0])
         if s[0] == 'GO' and s[1] in tokens['DIRECTIONS']:
             mobs.p.move((s[1]).lower())
             print('walking ',s[1].lower())
+        elif s[0] in tokens['DIRECTIONS']:
+            mobs.p.move((s[0]).lower())
+            print('walking ',s[0].lower())         
         elif s[0] == 'LOOK' and 'L':
             print("You're at the ",mobs.p.c)
         else:
@@ -18,7 +22,18 @@ def check_commands(s):
         print("Index Error")
 
 
-
+def synonymize(s):
+    if isinstance(s,str):
+        if s in synonyms.keys():
+            return synonyms[s]
+    if isinstance(s,list):
+        for num in range(0,len(s)):
+            if s[num] in synonyms.keys():
+                s[num] = synonyms[s[num]]
+        return s
+    else:
+        return None
+    
 
 def sanitize_sentence(sentence):
     try:
