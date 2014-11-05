@@ -27,6 +27,7 @@ tokens = {
         'NW',
         ],
     'VERBS':[
+        'QUIT',
         'GO',
         'L',
         'LOOK',

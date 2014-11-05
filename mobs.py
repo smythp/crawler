@@ -2,4 +2,4 @@
 
 import cc
 
-p = cc.Player("Bob",'warehouse')
+p = cc.Player('Patrick',(5,5))

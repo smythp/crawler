@@ -1,21 +1,43 @@
 import lexicon
-import mobs
 import synonyms
+import cc
+
+##import mobs
 
 synonyms = synonyms.synonym_list
 tokens = lexicon.tokens
 
 
+def update_direction(direction,currentloc):
+    if direction == 'W':
+        return (currentloc[0] - 1,currentloc[1])
+    if direction == 'N':
+        return (currentloc[0],currentloc[1] + 1)
+    if direction == 'E':
+        return (currentloc[0] + 1,currentloc[1])
+    if direction == 'S':
+        return (currentloc[0],currentloc[1] - 1)
+
+
 def check_commands(s):
     try:
+
+## This first command needs to be fixed to be similar to the one after. Add similarize function to the loop?
         if s[0] == 'GO' and s[1] in tokens['DIRECTIONS']:
-            mobs.p.move((s[1]).lower())
+            cc.p.move((s[1]).upper())
             print('walking ',s[1].lower())
-        elif s[0] in tokens['DIRECTIONS']:
-            mobs.p.move((s[0]).lower())
-            print('walking ',s[0].lower())         
+        if s[0] in tokens['DIRECTIONS']:
+            if cc.p.check_move((s[0]).upper()) == False:
+                print("Can't go in that direction!")
+            else:
+                cc.p.move((s[0]).upper())
+                print('walking ',s[0].lower())         
         elif s[0] == 'LOOK' and 'L':
-            print("You're at the ",mobs.p.c)
+            print("You're at the",cc.Room.lookup[cc.p.c][0]," at location ",cc.p.c)
+        elif s[0] == 'QUIT':
+            print("Goodbye!")
+            exit()
+            
         else:
             print("Can't do that!")
     except IndexError:

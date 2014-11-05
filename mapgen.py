@@ -1,11 +1,11 @@
-import cc
+##class Building(object):
+##    def __init__(self,name,point):
+##        self.name = self
+##        self.point = point
+##        Building.lookup[point] = (name,self)
+##    lookup = {}
 
-##cc.Room("warehouse",{'n':'house','w':'pond'})
-##cc.Room("pond",{'e':'warehouse'})
-##cc.Room("house",{'s':'warehouse'})
-##
-
-
+cc.Room = Room
 
 
 import random
@@ -27,8 +27,8 @@ for x in range(0,len(lx)):
 
 
 for point in lxy:
-    point = cc.Room('%s' % (randomname()),point)
+    point = Room('%s' % (randomname()),point)
 
-##print(cc.Room.lookup)
+
 
 
